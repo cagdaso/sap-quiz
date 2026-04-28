@@ -3,6 +3,6 @@
 <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-database-compat.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 <script>
-var DB_URL=https://simplepollbyxpr-default-rtdb.europe-west1.firebasedatabase.app,API_KEY=AIzaSyAvirFSSGzE1BIsDrFFDs3c0Y9iMn7yABw,VOTE_BASE=https://cagdaso.github.io/sap-quiz/vote.html;
+var DB_URL="https://simplepollbyxpr-default-rtdb.europe-west1.firebasedatabase.app",API_KEY="AIzaSyAvirFSSGzE1BIsDrFFDs3c0Y9iMn7yABw",VOTE_BASE="https://cagdaso.github.io/sap-quiz/vote.html";
 function init(){var app=firebase.initializeApp({apiKey:"AIzaSyAvirFSSGzE1BIsDrFFDs3c0Y9iMn7yABw",databaseURL:"https://simplepollbyxpr-default-rtdb.europe-west1.firebasedatabase.app"});var db=firebase.database(app);sr=db.ref("quiz");document.getElementById("voteUrl").textContent="https://cagdaso.github.io/sap-quiz/vote.html";new QRCode(document.getElementById("qrcode"),{text:"https://cagdaso.github.io/sap-quiz/vote.html",width:174,height:174,colorDark:"#0070F2",colorLight:"#fff",correctLevel:QRCode.CorrectLevel.M});sr.on("value",function(snap){var s=snap.val()||{status:"waiting",votes:{A:0,B:0,C:0,D:0},round:0};votes=s.votes||{A:0,B:0,C:0,D:0};applyS(s.status||"waiting",s.round||0);updateC(votes,s.status==="ended");setT(votes);});document.getElementById("dot").className="dot active";document.getElementById("stxt").textContent="Connected";document.getElementById("btnStart").disabled=false;}
 var sr,votes={A:0,B:0,C:0,D:0},qd=false;window.onload=init;</script></body></html>
